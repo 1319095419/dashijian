@@ -11,13 +11,30 @@ a{
     width: 40px;
     height: 40px;
 }
+.text-avatar{
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #009688;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+}
 .userInfo{
     height: 60px;
-    text-align: center;
+    padding-left: 10px;
     line-height: 60px;
+    user-select: none;
 }
 .userInfo a{
     color: #fff!important;
+}
+#nickname{
+    color: #009688;
 }
 .layui-body{
     overflow: hidden;
@@ -30,5 +47,7 @@ iframe{
    height: 100%;
 }
 .layui-footer{
+    font-size: 12px;
     text-align: center;
+    user-select: none;
 }
