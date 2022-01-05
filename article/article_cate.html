@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章类别</title>
+  <!-- 引入layui样式 -->
+  <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+  <!-- 引入文章类别样式 -->
+  <link rel="stylesheet" href="../assets/css/article/article_cate.css">
+</head>
+
+<body>
+  <div class="layui-card">
+    <div class="layui-card-header">文章类别管理
+      <button type="button" class="layui-btn layui-btn-normal layui-btn-sm addBtn">添加类别</button>
+    </div>
+    <div class="layui-card-body">
+      <table class="layui-table">
+        <colgroup>
+          <col>
+          <col>
+          <col width="200">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>分类名称</th>
+            <th>分类别名</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <!-- 定义表格行模板引擎 -->
+      <script id="articleList" type="text/html">
+       {{each data}}
+       <tr>
+        <td>{{$value.name}}</td>
+        <td>{{$value.alias}}</td>
+        <td>
+          <button type="button" class="layui-btn layui-btn-xs btnEdit" data-id="{{$value.Id}}">编辑</button>
+          <button type="button" class="layui-btn layui-btn-xs layui-btn-danger btnDelete" data-id="{{$value.Id}}">删除</button>
+        </td>
+      </tr>
+       {{/each}}
+      </script>
+      <!-- 添加文章表单模板 -->
+      <script id="addCate" type="text/html">
+        <form class="layui-form" id="addArticleCate"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">分类名称</label>
+            <div class="layui-input-block">
+              <input type="text" name="name" placeholder="请输入分类名称" autocomplete="off" lay-verify="required" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">分类别名</label>
+            <div class="layui-input-block">
+              <input type="text" name="alias" placeholder="请输入分类别名" autocomplete="off" lay-verify="required" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+          </div>
+        </form>
+      </script>
+      <!-- 修改文章表单模板 -->
+      <script id="editCate" type="text/html">
+        <form class="layui-form" lay-filter="editForm" id="editCate"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">分类名称</label>
+            <div class="layui-input-block">
+              <input type="text" name="name" placeholder="请输入分类名称" autocomplete="off" lay-verify="required" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">分类别名</label>
+            <div class="layui-input-block">
+              <input type="text" name="alias" placeholder="请输入分类别名" autocomplete="off" lay-verify="required" class="layui-input">
+            </div>
+          </div>
+          <!-- id隐藏域表单 -->
+          <input type="hidden" name="Id" class="Id">
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="*">确认修改</button>
+              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+          </div>
+        </form>
+      </script>
+    </div>
+  </div>
+  <!-- 引入layuijs-->
+  <script src="../assets/lib/layui/layui.all.js"></script>
+  <!-- 引入jquery -->
+  <script src="../assets/lib/jquery.min.js"></script>
+  <!-- 引入art-template模板 -->
+  <script src="../assets/lib/template-web.js"></script>
+  <!-- 引入公共接口 -->
+  <script src="../assets/js/API.js"></script>
+  <!-- 引入文章类别js -->
+  <script src="../assets/js/article/article_cate.js"></script>
+</body>
+
+</html>

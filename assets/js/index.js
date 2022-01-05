@@ -1,4 +1,7 @@
 $(function(){
+    // 将文章列表按钮dom放入全局
+    window.articleList = document.querySelector('.articleList');
+
     // 登录成功进入主页后发送请求获取用户信息并渲染
     initUser();
 
@@ -37,6 +40,6 @@ $(function(){
             $('.user-pic').hide();
         }
         // 昵称
-        $('#nickname').html('&nbsp;&nbsp;'+data.nickname || '&nbsp;&nbsp;***');
+        $('#nickname').html('&nbsp;&nbsp;'+(data.nickname || '&nbsp;&nbsp;'+data.username));
     }
 })
