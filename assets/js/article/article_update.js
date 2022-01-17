@@ -107,6 +107,7 @@ $(function () {
                 $('.content').val(data.content);
                 // 将图片填充到对应裁剪区域中
                 var newImgURL = url+data.cover_img;
+                console.log(newImgURL);
                 $image
                     .cropper('destroy')      // 销毁旧的裁剪区域
                     .attr('src', newImgURL)  // 重新设置图片路径

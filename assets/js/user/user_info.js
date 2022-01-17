@@ -33,7 +33,7 @@ $(function(){
             method: 'GET',
             url: '/my/userinfo',
             success: function (res) {
-                // 判断用户信息是否获取成成功
+                // 判断用户信息是否获取成功
                 if(res.status !== 0){
                     return layer.msg(res.message);
                 }
